@@ -11,7 +11,6 @@ const projects = [];
  *  
  */
 
-
 app.get('/projects', (req, res) => {
     const { title, owner } = req.query;
     console.log(title, owner);
@@ -29,9 +28,9 @@ app.post('/projects', (req, res) => {
     console.log(owner);
 
     const project = { id: uuid(), title, owner };
-    
+
     projects.push(project);
-    return res.json(projects);
+    return res.json(project);
 })
 
 
