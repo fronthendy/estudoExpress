@@ -4,8 +4,8 @@ const app = express();
 // console.log(app);
 
 app.get('/projects', (req, res) => {
-    const query = req.query;
-    console.log(query);
+    const {title, owner} = req.query;
+    console.log(title, owner);
     return res.json([
         'Projeto 1',
         'Projeto 2'
@@ -14,6 +14,8 @@ app.get('/projects', (req, res) => {
 
 
 app.post('/projects', (req, res) => {
+    const body = request.body;
+    console.log(body);
 
     return res.json([
         'Projeto 1',
@@ -27,6 +29,9 @@ app.post('/projects', (req, res) => {
 
 
 app.put('/project/:id', (req, res) => {
+    const params = req.params;
+    console.log(params);
+
     return req.json([
         'Projeto 1',
         'Projeto 2',
@@ -42,4 +47,5 @@ app.delete('/project/:id', (req, res) => {
         'Projeto 2',
     ])
 })
+
 app.listen(3333);
