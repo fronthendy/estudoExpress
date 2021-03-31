@@ -4,7 +4,10 @@ const app = express();
 // console.log(app);
 
 app.get('/', (request, response) => {
-    response.send('Olá, Pessoal!');
+    return response.json([
+        'Projeto 1',
+        'Projeto 2'
+    ]);
 });
 
 app.listen(3000, () => {
