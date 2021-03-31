@@ -4,6 +4,8 @@ const app = express();
 // console.log(app);
 
 app.get('/projects', (req, res) => {
+    const query = req.query;
+    console.log(query);
     return res.json([
         'Projeto 1',
         'Projeto 2'
@@ -12,6 +14,7 @@ app.get('/projects', (req, res) => {
 
 
 app.post('/projects', (req, res) => {
+
     return res.json([
         'Projeto 1',
         'Projeto 2',
