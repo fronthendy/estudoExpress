@@ -15,8 +15,28 @@ app.post('/projects', (req, res) => {
     return res.json([
         'Projeto 1',
         'Projeto 2',
-        'Projeto 3'
+        'Projeto 3',
+        'Projeto 4',
+        'Projeto 5',
     ]);
 })
 
+
+
+app.put('/project/:id', (req, res) => {
+    return req.json([
+        'Projeto 1',
+        'Projeto 2',
+        'Projeto 3',
+        'Projeto 4',
+        'Projeto 5',
+    ])
+})
+
+app.delete('/project/:id', (req, res) => {
+    return req.json([
+        'Projeto 50',
+        'Projeto 2',
+    ])
+})
 app.listen(3333);
