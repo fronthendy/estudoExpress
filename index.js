@@ -1,10 +1,19 @@
 const express = require('express');
+const { uuid } = require('uuidv4');
 const app = express();
-
 app.use(express.json());
+const projects = [];
+
+/**
+ *  Query Params: Vamos usar principalmente para filtros e paginação
+ *  Route Params: Identificar recursos na hora de atualizar ou deletar
+ *  Request Body: Informações que chegam através da requisição do usuario
+ *  
+ */
+
 
 app.get('/projects', (req, res) => {
-    const {title, owner} = req.query;
+    const { title, owner } = req.query;
     console.log(title, owner);
 
     return res.json([
@@ -15,16 +24,14 @@ app.get('/projects', (req, res) => {
 
 
 app.post('/projects', (req, res) => {
-    const body = req.body;
-    console.log(body);
+    const { title, owner } = req.body;
+    console.log(title);
+    console.log(owner);
 
-    return res.json([
-        'Projeto 1',
-        'Projeto 2',
-        'Projeto 3',
-        'Projeto 4',
-        'Projeto 5',
-    ]);
+    const project = { id: uuid(), title, owner };
+    
+    projects.push(project);
+    return res.json(projects);
 })
 
 
